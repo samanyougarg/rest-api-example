@@ -8,14 +8,7 @@ from app import db
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    # db.create_all()
-    # db.session.commit()
     return render_template('main/index.html')
-
-
-@main.route('/about', methods=['GET', 'POST'])
-def about():
-    return jsonify("RadhaKrishna")
 
 
 @main.route('/manage/apps/new', methods=['GET', 'POST'])

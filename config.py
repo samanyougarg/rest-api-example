@@ -19,7 +19,7 @@ if os.path.exists('config.env'):
 
 
 class Config:
-    APP_NAME = 'Bhagavad Gita'
+    APP_NAME = 'REST API'
 
     if os.environ.get('SECRET_KEY'):
         SECRET_KEY = os.environ.get('SECRET_KEY')

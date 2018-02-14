@@ -88,7 +88,7 @@ def create_app(config_name):
     from flasgger import APISpec, Schema, Swagger, fields
 
     spec = APISpec(
-        title='Bhagavad Gita API',
+        title='REST API',
         version='1.0.0',
         plugins=[
             'apispec.ext.flask',
@@ -97,7 +97,7 @@ def create_app(config_name):
     )
 
     app.config['SWAGGER'] = {
-            'title': 'Sample REST API',
+            'title': 'REST API',
             'uiversion': 3
     }
 
@@ -107,7 +107,7 @@ def create_app(config_name):
                 'swagger': '3.0',
                 'info':
                 {
-                    'title': 'Sample REST API',
+                    'title': 'REST API',
                     'version': '1.0'
                 }
             }
