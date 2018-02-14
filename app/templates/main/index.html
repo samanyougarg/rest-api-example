@@ -1,0 +1,253 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+  <div class="container" style="margin-top: 3rem;">
+    <div class="card">
+      <div class="card-body">
+        <h1>Sample REST API</h1>
+
+        <hr>
+
+        <p>This project aims to provide an example of an API that follows some of the Best Practices for designing a REST API.</p>
+
+        <h2 id="restapibestpractices">REST API Best Practices</h2>
+
+        <p>This page lists out some of the Best Practices and Guidelines that should be followed when designing a REST API to make it easy for the developers to use and implement.</p>
+
+        <h3 id="1versioningtheapi">1. Versioning the API</h3>
+
+        <p>Upgrading your API with a breaking change may break the existing products/services using your API. Versioning ensures that your users can still access the older version of your API for some time while they transition to the newer version.
+        <br>
+        Example - <code>http://flrestdev.vrtx.com/api/v1/buildings</code></p>
+
+        <h3 id="2httpmethods">2. HTTP Methods</h3>
+
+        <p>HTTP methods define the types of actions that can be performed on a resource.</p>
+
+        <ul>
+        <li><strong>GET</strong> method retrieves data from a resource.
+        <br>
+        Examples -
+
+
+        <ul>
+        <li><code>GET /buildings</code> will get a list of all the buildings.
+
+
+        <ul>
+        <li><code>GET /buildings/1</code> will get the building with ID 1.</li></ul>
+        </li></ul>
+        </li>
+
+        <li><strong>POST</strong> method requests the server to insert a resource into the database.
+        <br>
+        Examples -
+
+
+        <ul>
+        <li><code>POST /buildings</code> can be used to insert one or more buildings into the database. </li></ul>
+        </li>
+
+        <li><strong>PUT</strong> method requests the server to update a resource or create it if it doesn't exist.
+        <br>
+        Examples -
+
+
+        <ul>
+        <li><code>PUT /buildings/1</code> will update the building with ID 1 or create it if it doesn't exist.</li></ul>
+        </li>
+
+        <li><strong>PATCH</strong> method requests the server to partially update a resource in the database.
+        <br>
+        Examples -
+
+
+        <ul>
+        <li><code>PATCH /buildings/1</code> will update the building with ID 1.</li></ul>
+        </li>
+
+        <li><strong>DELETE</strong> method requests the server to delete a resource from the database.
+        <br>
+        Examples -
+
+
+        <ul>
+        <li><code>DELETE /buildings/1</code> can be used to delete the building with ID 1.</li></ul>
+        </li>
+        </ul>
+
+        <h3 id="3restfulendpoints">3. RESTful Endpoints</h3>
+
+        <ul>
+        <li><p>Endpoints should include nouns, not verbs or actions.
+        <br>
+        <strong>Avoid</strong></p>
+
+        <ul>
+        <li>/getAllBuildings</li>
+
+        <li>/getBuilding</li>
+
+        <li>/addBuilding</li>
+
+        <li>/deleteBuilding</li></ul>
+
+        <p><strong>Use</strong></p>
+
+        <ul>
+        <li>/buildings</li></ul></li>
+
+        <li><p>Only Plural nouns should be used for consistency.</p></li>
+
+        <li><p>But how do you tell the endpoint what action to perform?
+        Solution - Use HTTP verbs (GET, POST, PUT, PATCH, DELETE) to perform CRUD actions.
+        <br>
+        Examples - </p>
+
+        <p><ul>
+        <li><code>GET /buildings</code> will get a list of all the buildings.</li></p>
+
+        <p><li><code>GET /buildings/1</code> will get the building with ID 1.</li></p>
+
+        <p><li><code>POST /buildings</code> can be used to insert one or more buildings into the database. Do not use <code>/building</code> to post a single building. <code>/buildings</code> should be able to handle one or more buildings.</li></p>
+
+        <p><li><code>DELETE /buildings/1</code> will delete the building with ID 1.</li></p>
+
+        <p><li><code>PUT/PATCH /buildings/1</code> will update the building with ID 1.</li></ul>
+
+        <p></p></li>
+        </ul></p>
+
+        <h3 id="4httpresponses">4. HTTP Responses</h3>
+
+        <p>HTTP defines a set of Status Codes that must be included in your API responses to tell the developer that status of his/her request.
+        Here are some of the commonly used Status Codes - </p>
+
+        <ul>
+        <li><code>200 OK</code> - GET, PUT, PATCH or DELETE was successful.</li>
+
+        <li><code>201 Created</code> - POST request was successful.</li>
+
+        <li><code>204 No Content</code> - DELETE was successful.</li>
+
+        <li><code>400 Bad Request</code> - There were inavlid parameters in the request. Developer must fix them.</li>
+
+        <li><code>401 Unauthorized</code> - Invalid Credentials were provided.</li>
+
+        <li><code>404 Not Found</code> - URL does not exist.</li>
+
+        <li><code>405 Method Not Allowed</code> - Requested method is not allowed on the resource.</li>
+
+        <li><code>500 Internal Server Error</code> - Problem with the server.</li>
+        </ul>
+
+        <h3 id="5documentation">5. Documentation</h3>
+
+        <p>Docs should be easily accessible and readable. Should provide examples of requests and responses. Should always be upto date.
+        Your docs should follow the Open API standards.
+        We have used two types of docs in this example, both of which depend on the Open API spec.</p>
+
+        <ol>
+        <li><strong>Swagger UI</strong> - Lets users test out the various endpoints.</li>
+
+        <li><strong>ReDoc</strong> - Easily to read detailed documentation.</li>
+        </ol>
+
+        <h3 id="6validation">6. Validation</h3>
+
+        <p>Your API should validate the requests being sent to the server and provide appropriate responses. POST, PUT and PATCH requests should provide field specific errors to help the developer locate and fix the issue.</p>
+
+        <h3 id="7ssl">7. SSL</h3>
+
+        <p>Your API should always use SSL for all endpoints to ensure the safety of the data.</p>
+      </div>
+    </div>
+  </div>
+
+  <style>
+  body {
+    background-color: #E9E9E9;
+  }
+
+  .jumbotron {
+    background-image: url("/static/images/sribhagavadgita.jpg");
+    background-size: cover;
+    height: 80vh;
+  }
+  .hanuman-gradient-text[data-color="hanuman-gradient"][data-direction="horizontal"] * {
+    background-image: linear-gradient(to right,#ff4f0f,#fd8e26);
+  }
+  .hanuman-gradient-text[data-color="hanuman-gradient"] *, .list-icon-holder[data-icon_type="numerical"] span {
+    color: #ff4f0f;
+    background: linear-gradient(to bottom right,#ff4f0f,#fd8e26);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+    display: inline-block;
+  }
+  .btn-rounded {
+      border-radius: 10em;
+  }
+  a:not([href]):not([tabindex]), a:not([href]):not([tabindex]):focus, a:not([href]):not([tabindex]):hover {
+    color: inherit;
+    text-decoration: none;
+}
+
+a:not([href]):not([tabindex]) {
+    color: inherit;
+    text-decoration: none;
+}
+
+.card .btn-action {
+    margin: -23px 20px;
+    margin-left: auto;
+    background-color: #ffb300;
+    height: 47px;
+    width: 47px;
+    line-height: 0;
+}
+
+a.waves-effect, a.waves-light {
+    display: inline-block;
+}
+
+.btn-floating {
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    width: 47px;
+    height: 47px;
+    padding: 0;
+    border-radius: 50%;
+    margin: 10px;
+    background-color: #a6c;
+    color: #fff;
+    cursor: pointer;
+    -webkit-transition: .3s;
+    transition: .3s;
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,.18), 0 4px 15px 0 rgba(0,0,0,.15);
+}
+
+.card .btn-action .fa.fa-chevron-right {
+    margin-top: 2px;
+    margin-left: 2px;
+}
+
+.card .btn-action .fa {
+    font-size: 18px;
+}
+
+.btn-floating i {
+    display: inline-block;
+    width: inherit;
+    color: #fff;
+    font-size: 1.25rem;
+    line-height: 47px;
+    text-align: center;
+}
+  </style>
+{% endblock %}
