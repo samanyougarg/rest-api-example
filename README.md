@@ -9,7 +9,7 @@ This page lists out some of the Best Practices and Guidelines that should be fol
 ### 1\. Versioning the API
 
 Upgrading your API with a breaking change may break the existing products/services using your API. Versioning ensures that your users can still access the older version of your API for some time while they transition to the newer version.  
-Example - `http://flrestdev.vrtx.com/api/v1/buildings`
+Example - `http://example.com/api/v1/buildings`
 
 ### 2\. HTTP Methods
 
